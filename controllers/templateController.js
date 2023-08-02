@@ -121,11 +121,23 @@ exports.getTemplatesByCategory = async (req, res) => {
 };
 
 
+exports.deleteTemplate = async (req, res) => {
+  try {
+    const templateId = req.params.id;
 
-// exports.listCategoryTemplates = async (req, res) => {
-//     try {
-      
-//     } catch (error) {
-//       res.status(500).json({ error: 'Error creating Template.' });
-//     }
-// };
+    // Find the template by ID
+    const template = await Template.findByPk(templateId);
+
+    if (!template) {
+      return res.status(404).json({ error: "Template not found." });
+    }
+
+    // Delete the template
+    await template.destroy();
+
+    res.status(200).json({ message: "Template deleted successfully." });
+  } catch (error) {
+    console.error('Error deleting template:', error);
+    res.status(500).json({ error: 'Error deleting template.' });
+  }
+};

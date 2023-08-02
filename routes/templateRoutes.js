@@ -8,5 +8,6 @@ templateRouter.get('/categories/:categoryName', templateController.getTemplatesB
 templateRouter.get('/showall', templateController.showAllTemplates)
 templateRouter.post('/create', templateController.createTemplate)
 templateRouter.put('/:id', templateController.editTemplate)
+templateRouter.delete('/:id', templateController.deleteTemplate)
 
 module.exports = templateRouter;
