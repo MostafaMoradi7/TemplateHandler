@@ -11,12 +11,18 @@ try {
   console.error('Unable to connect to the database:', error);
 }
 
+app.use(express.json())
 
 
 const apiRoutes = require('./routes/api');
+const categoryRoutes = require('./routes/categoryRoutes');
+const templateRoutes = require('./routes/templateRoutes');
 
 
 app.use('/api', apiRoutes);
+app.use('/category', categoryRoutes);
+app.use('/template', templateRoutes);
+
 
 
 
