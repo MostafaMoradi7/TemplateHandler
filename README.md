@@ -87,7 +87,3 @@ Categories and templates are defined as Sequelize models in the `models` directo
 ## Contributing
 
 Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the ISC License. See the [LICENSE](LICENSE) file for more details.
