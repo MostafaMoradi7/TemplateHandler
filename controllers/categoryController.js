@@ -34,3 +34,61 @@ exports.showAllCategorys = async (req, res) => {
       res.status(500).json({ error: 'Error creating Template.' });
     }
 };
+
+
+
+exports.editCategory = async (req, res) => {
+  try {
+    const categoryName = req.params.name;
+    const { name, parentId } = req.body;
+
+    // Find the category by ID
+    const category = await Category.findOne({
+      where: {
+        name: categoryName
+      }
+    });
+
+    if (!category) {
+      return res.status(404).json({ error: "Category not found." });
+    }
+
+    // Update the category's properties based on provided values
+    const updatedFields = {};
+    if (name) {
+      updatedFields.name = name;
+    }
+    if (parentId !== undefined) {
+      updatedFields.parentId = parentId;
+    }
+
+    // Perform the category update
+    await category.update(updatedFields);
+
+    res.status(200).json(category);
+  } catch (error) {
+    console.error('Error editing category:', error);
+    res.status(500).json({ error: 'Error editing category.' });
+  }
+};
+
+
+
+exports.getCategoriesWithChildren = async (req, res) => {
+  try {
+    const categories = await Category.findAll({
+      include: [
+        {
+          model: Category,
+          as: 'subCategories',
+        },
+      ],
+    });
+
+    res.status(200).json(categories);
+  } catch (error) {
+    console.error('Error editing category:', error);
+    res.status(500).json({ error: 'Error Collectiong category information.' });
+  }
+};
+
