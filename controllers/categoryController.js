@@ -13,7 +13,7 @@ exports.createCategory = async (req, res) => {
       }
     });
     if (!parentCategory) {
-      return res.status(404).json({ error: "No parent category found with the provided parentName." });
+      return res.status(400).json({ error: "No parent category found with the provided parentName." });
     }
     parentId = parentCategory.id
     const newCategory = await Category.create({ name, parentId });
