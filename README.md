@@ -38,12 +38,12 @@ npm install
 const { Sequelize } = require('sequelize');
 
 const connection = new Sequelize({
-  dialect: 'postgres',
-  host: 'localhost',
-  port: 5432,
-  database: 'ABRNOC',
-  username: 'postgres',
-  password: 'pass123word',
+  dialect: 'dialect',
+  host: 'host',
+  port: port,
+  database: 'database',
+  username: 'username',
+  password: 'password',
 });
 
 module.exports = connection;
