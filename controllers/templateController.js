@@ -26,12 +26,13 @@ exports.createTemplate = async (req, res) => {
     res.status(500).json({ error: 'Error creating template.' });
   }
 };
+
 exports.showAllTemplates = async (req, res) => {
     try {
       const templates = await Template.findAll()
       res.status(200).json(templates);
     } catch (error) {
-      res.status(500).json({ error: 'Error creating Template.' });
+      res.status(500).json({ error: 'Error Finding Templates.' });
     }
 };
 
@@ -90,13 +91,35 @@ exports.editTemplate = async (req, res) => {
 };
 
 
-// exports.deleteTemplate = async (req, res) => {
-//     try {
-      
-//     } catch (error) {
-//       res.status(500).json({ error: 'Error creating Template.' });
-//     }
-// };
+exports.getTemplatesByCategory = async (req, res) => {
+  try {
+    const categoryName = req.params.categoryName;
+
+    // Find the category by name
+    const category = await Category.findOne({
+      where: {
+        name: categoryName
+      }
+    });
+
+    if (!category) {
+      return res.status(404).json({ error: "Category not found." });
+    }
+
+    // Find all templates associated with the category
+    const templates = await Template.findAll({
+      include: {
+        model: Category,
+        where: { name: categoryName },
+      },
+    });
+    res.status(200).json(templates);
+  } catch (error) {
+    console.error('Error getting templates by category:', error);
+    res.status(500).json({ error: 'Error getting templates by category.' });
+  }
+};
+
 
 
 // exports.listCategoryTemplates = async (req, res) => {

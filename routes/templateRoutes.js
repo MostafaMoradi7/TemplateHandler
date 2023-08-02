@@ -4,8 +4,9 @@ const templateRouter = express.Router();
 const templateController = require('../controllers/templateController');
 
 
-templateRouter.post('/create', templateController.createTemplate)
+templateRouter.get('/categories/:categoryName', templateController.getTemplatesByCategory)
 templateRouter.get('/showall', templateController.showAllTemplates)
+templateRouter.post('/create', templateController.createTemplate)
 templateRouter.put('/:id', templateController.editTemplate)
 
 module.exports = templateRouter;
