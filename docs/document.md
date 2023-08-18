@@ -1,6 +1,6 @@
-# Abrnoc Template Handler Documentation
+# Template Handler Documentation
 
-Welcome to the documentation for the Abrnoc Template Handler project. This guide will walk you through the installation process, usage instructions, API endpoints, database structure, and more.
+Welcome to the documentation for the Template Handler project. This guide will walk you through the installation process, usage instructions, API endpoints, database structure, and more.
 
 ## Table of Contents
 
@@ -20,11 +20,11 @@ Welcome to the documentation for the Abrnoc Template Handler project. This guide
 
 ## Introduction
 
-The Abrnoc Template Handler is a Node.js application designed to manage templates for the Abrnoc company. It offers functionalities to create, edit, delete, and retrieve templates associated with different categories. This documentation will guide you through the installation process and provide information about how to use the application effectively.
+The Template Handler is a Node.js application designed to manage templates. It offers functionalities to create, edit, delete, and retrieve templates associated with different categories. This documentation will guide you through the installation process and provide information about how to use the application effectively.
 
 ## Installation
 
-Follow these steps to set up the Abrnoc Template Handler on your local machine.
+Follow these steps to set up the Template Handler on your local machine.
 
 ### Clone the Repository
 
@@ -66,9 +66,9 @@ The application uses a relational database to store categories and templates. Yo
      dialect: 'postgres',
      host: 'localhost',
      port: 5432,
-     database: 'ABRNOC',
-     username: 'postgres',
-     password: 'pass123word',
+     database: 'database',
+     username: 'username',
+     password: 'password',
    });
 
    module.exports = connection;
@@ -95,9 +95,9 @@ If you prefer to use a different relational database, such as MySQL or SQLite, y
      dialect: 'mysql', // Change this to 'mysql', 'sqlite', etc. as needed
      host: 'localhost',
      port: 3306, // Change the port if needed
-     database: 'ABRNOC',
-     username: 'your_username',
-     password: 'your_password',
+     database: 'database',
+     username: 'username',
+     password: 'password',
    });
 
    module.exports = connection;
@@ -145,7 +145,7 @@ Certainly! Here's an example of how you can add screenshots and descriptions for
 
 ## Usage
 
-The Abrnoc Template Handler provides a RESTful API for managing categories and templates. You can interact with the API using HTTP requests. Below, we provide screenshots and descriptions for each endpoint using Postman.
+The Template Handler provides a RESTful API for managing categories and templates. You can interact with the API using HTTP requests. Below, we provide screenshots and descriptions for each endpoint using Postman.
 
 ### Categories
 
