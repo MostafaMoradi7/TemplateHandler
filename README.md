@@ -1,6 +1,6 @@
 # Template Handler
 
-Template Handler is a Node.js application designed to handle templates for the Abrnoc company. It provides functionalities to manage categories and templates, allowing users to create, edit, delete, and retrieve templates associated with categories.
+Template Handler is a Node.js application designed to handle templates. It provides functionalities to manage categories and templates, allowing users to create, edit, delete, and retrieve templates associated with categories.
 
 ## Table of Contents
 
@@ -57,7 +57,7 @@ npm start
 
 ## Usage
 
-The Abrnoc Template Handler provides a RESTful API for managing categories and templates. You can interact with the API using HTTP requests.
+The Template Handler provides a RESTful API for managing categories and templates. You can interact with the API using HTTP requests.
 
 ## Endpoints
 
